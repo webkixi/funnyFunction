@@ -84,7 +84,7 @@ var funnyFunction = {
     },
     array: {
     	//去重
-        arrayUnique: function() {
+        unique: function() {
             var ret = [];
             var hash = {};
 
