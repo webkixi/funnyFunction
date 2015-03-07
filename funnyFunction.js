@@ -100,9 +100,10 @@ var funnyFunction = {
             return ret;
         },
     },
-    fn: {
+    //对象相关
+    obj: {
     	//调用对象所有方法,arguments:过滤方法名
-        call: function(obj) {
+        callFn: function(obj) {
             var arg, sum = 0,
                 name = '',
                 fn;
