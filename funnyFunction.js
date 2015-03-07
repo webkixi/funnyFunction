@@ -118,7 +118,7 @@ var funnyFunction = {
                     fn = obj[fname];
                     if (typeof fn === 'function') {
                         fn();
-                    }
+                    } 
                 }
             };
         }
