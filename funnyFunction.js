@@ -29,28 +29,29 @@ var funnyFunction = {
             }
             return num;
         },
-		//对象数量
-		objectSize:function(obj) {
-		    var size = 0, key;
-		    for (key in obj) {
-		        if (obj.hasOwnProperty(key)) size++;
-		    }
-		    return size;
-		}
+        //对象数量
+        objectSize: function(obj) {
+            var size = 0,
+                key;
+            for (key in obj) {
+                if (obj.hasOwnProperty(key)) size++;
+            }
+            return size;
+        }
     },
     //字符串相关
     string: {
-	    //返回URL参数
-	    urlParam: function(name) {
-	        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
-	        var r = window.location.search.substr(1).match(reg);
-	        if (r != null) return window.unescape(r[2]);
-	        return null;
-	    },
-	    //返回当前url完整路口
-	    urlFullPath:function(){
-	        return window.location.protocol + "//" + window.location.host + window.location.pathname;
-	    }
+        //返回URL参数
+        urlParam: function(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return window.unescape(r[2]);
+            return null;
+        },
+        //返回当前url完整路口
+        urlFullPath: function() {
+            return window.location.protocol + "//" + window.location.host + window.location.pathname;
+        }
     },
     //日期相关
     date: {
@@ -83,7 +84,7 @@ var funnyFunction = {
         }
     },
     array: {
-    	//去重
+        //去重
         unique: function() {
             var ret = [];
             var hash = {};
@@ -98,5 +99,28 @@ var funnyFunction = {
             }
             return ret;
         },
+    },
+    fn: {
+    	//调用对象所有方法,arguments:过滤方法名
+        call: function(obj) {
+            var arg, sum = 0,
+                name = '',
+                fn;
+            for (var fname in obj) {
+            	sum = 0;
+                for (var i = 1; i < arguments.length; i++) {
+                    arg = arguments[i];
+                    if (fname === arg) {
+                        sum++;
+                    }
+                }
+                if (sum === 0) {
+                    fn = obj[fname];
+                    if (typeof fn === 'function') {
+                        fn();
+                    }
+                }
+            };
+        }
     }
 }

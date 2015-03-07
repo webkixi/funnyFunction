@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>funnyFunction Test</title>
+	<script src='funnyFunction.js'></script>
+</head>
+<body>
+	<script type="text/javascript">
+		var test={
+			a:function(){
+				alert('123');
+			},
+			b:function(){
+				alert('234');
+			},
+			c:function(){
+				alert('567')
+			}
+		}
+		funnyFunction.fn.call(test,'b','c');
+	</script>
+</body>
+</html>
